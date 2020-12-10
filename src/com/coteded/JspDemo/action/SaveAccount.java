@@ -39,6 +39,7 @@ public class SaveAccount extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name = request.getParameter("name");
+		System.out.println(name);
 		String email = request.getParameter("email");
 		String phone = request.getParameter("phone");
 		String desc = request.getParameter("desc");

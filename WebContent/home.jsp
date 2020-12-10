@@ -6,8 +6,8 @@
     <title>JSP_Demo</title>
 </head>
 <body>
-    <form action="SaveAccount" method="post" enctype = "multipart/form-data">
-        <label for="name">name: </label><input type="text" name="name" id=""> <br>
+    <form action="SaveAccount" method="post">
+        <label for="name">name: </label><input type="text" name="name" id="name"> <br>
         <label for="email">email: </label><input type="email" name="email" id="email"> <br>
         <label for="phone">phone: </label><input type="tel" id="phone" name="phone"> <br>
         <textarea name="desc" id="" cols="30" rows="10"></textarea> <br>

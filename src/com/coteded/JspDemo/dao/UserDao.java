@@ -8,12 +8,12 @@ import com.coteded.JspDemo.bo.*;
 
 public class UserDao {
 	
-	public static List<UserInfo> users = new ArrayList<UserInfo>();
+	public static UserInfo user;
 	public static void AddUser(UserInfo user){
-		users.add(user);
+		UserDao.user = user;
 	}
 	
-	public static void GetUser() {
-		
+	public static UserInfo GetUser() {
+		return user;
 	}
 }

@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.coteded.JspDemo.bo.UserInfo;
+import com.coteded.JspDemo.dao.UserDao;
+
 /**
  * Servlet implementation class ViewAccount
  */
@@ -29,6 +32,9 @@ public class ViewAccount extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/ViewAccount.jsp");
+		UserInfo user = UserDao.GetUser();
+		System.out.print(user.getName());
+		request.setAttribute("name", user.getName());
 		dispatcher.forward(request, response);
 	}
 
