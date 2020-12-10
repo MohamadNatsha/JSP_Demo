@@ -6,10 +6,10 @@
     <title>JSP_Demo</title>
 </head>
 <body>
-    <form action="addUser" method="post" enctype = "multipart/form-data">
+    <form action="SaveAccount" method="post" enctype = "multipart/form-data">
         <label for="name">name: </label><input type="text" name="name" id=""> <br>
         <label for="email">email: </label><input type="email" name="email" id="email"> <br>
-        <label for="phone">phone: </label><input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"> <br>
+        <label for="phone">phone: </label><input type="tel" id="phone" name="phone"> <br>
         <textarea name="desc" id="" cols="30" rows="10"></textarea> <br>
         <select name="type" id="">
             <option value="later">later</option>
