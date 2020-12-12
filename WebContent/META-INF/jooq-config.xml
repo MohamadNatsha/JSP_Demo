@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="http://www.jooq.org/xsd/jooq-codegen-3.13.0.xsd">
+    
+    <jdbc>
+        <driver>org.postgresql.Driver</driver>
+        <url>jdbc:mysql://localhost:3306/jsp_demo</url>
+        <user>root</user>
+        <password>Test1234</password>
+    </jdbc>
+
+    <generator>
+        <name>org.jooq.codegen.JavaGenerator</name>
+
+        <database>
+            <name>org.jooq.meta.postgres.PostgresDatabase</name>
+            <inputSchema>public</inputSchema>
+            <includes>.*</includes>
+            <excludes></excludes>
+        </database>
+
+        <target>
+            <packageName>com.cotede.JspDemo.bo</packageName>
+            <directory>C:/Users/MSE/eclipse-workspace/JSP_Demo/src</directory>
+        </target>
+    </generator>
+</configuration>
+

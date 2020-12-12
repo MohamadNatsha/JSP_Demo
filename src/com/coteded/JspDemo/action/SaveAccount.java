@@ -2,10 +2,15 @@ package com.coteded.JspDemo.action;
 import com.coteded.JspDemo.bo.AccountType;
 import com.coteded.JspDemo.bo.UserInfo;
 import com.coteded.JspDemo.dao.*;
+import com.coteded.JspDemo.service.UploadFilesService;
+
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +19,9 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class AddUserAction
  */
+@MultipartConfig(fileSizeThreshold = 1024 * 1024,
+maxFileSize = 1024 * 1024 * 5, 
+maxRequestSize = 1024 * 1024 * 5 * 5)
 @WebServlet("/SaveAccount")
 public class SaveAccount extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -44,12 +52,21 @@ public class SaveAccount extends HttpServlet {
 		String phone = request.getParameter("phone");
 		String desc = request.getParameter("desc");
 		AccountType type = AccountType.Admin;
-		String image = request.getParameter("image");
-		String video = request.getParameter("video");
+		
+		String uploadPath = getServletContext().getRealPath("") + "files";
+		ArrayList<String> filesPathes = UploadFilesService.Upload(uploadPath,request);
+		
+		String image = filesPathes.get(0);
+		String video = filesPathes.get(1);
 		
 		UserInfo user = new UserInfo(name,phone,email,desc,image,video,type);
 		
-		UserDao.AddUser(user);
+		try {
+			UserDao.AddUser(user);
+		} catch (SQLException e) {
+
+		}
+
 		doGet(request,response);
 	}
 

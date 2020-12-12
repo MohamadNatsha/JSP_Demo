@@ -33,8 +33,7 @@ public class ViewAccount extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/ViewAccount.jsp");
 		UserInfo user = UserDao.GetUser();
-		System.out.print(user.getName());
-		request.setAttribute("name", user.getName());
+		request.setAttribute("user", user);
 		dispatcher.forward(request, response);
 	}
 

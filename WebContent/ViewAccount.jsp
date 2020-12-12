@@ -10,7 +10,7 @@
         <div class="box">
             <div class="information-box">
                 <div class="line">
-                    <h2>name</h2> <p>${name}</p>
+                    <h2>User data</h2> <p>${user}</p>
                 </div>
             </div>
         </div>

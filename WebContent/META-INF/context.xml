@@ -1,0 +1,14 @@
+<Context>
+	<Resource 
+		name="jdbc/jsp_demo" 
+		auth="Container"
+		type="javax.sql.DataSource"
+		username="root"
+		password="Test1234"
+		driverClassName="com.mysql.cj.jdbc.Driver"
+		url="jdbc:mysql://localhost:3306/jsp_demo?useSSL=false&amp;serverTimezone=UTC"
+		maxTotal="15"
+		maxIdle="3"
+		
+	/>
+</Context>

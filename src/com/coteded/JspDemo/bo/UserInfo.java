@@ -58,4 +58,10 @@ public class UserInfo {
 	public void setAccountType(AccountType accountType) {
 		this.accountType = accountType;
 	}
+
+	@Override
+	public String toString() {
+		return "UserInfo [name=" + name + ", number=" + number + ", email=" + email + ", desc=" + desc + ", imagePath="
+				+ imagePath + ", videoPath=" + videoPath + ", accountType=" + accountType + "]";
+	}
 }
