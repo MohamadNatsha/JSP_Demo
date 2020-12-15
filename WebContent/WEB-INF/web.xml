@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
+
+	
 <web-app>
 	<display-name>
-	Jsp_demo
+		Jsp_demo
 	</display-name>
-  <context-param> 
-      <description>Location to store uploaded file</description> 
-      <param-name>file-upload</param-name> 
-      <param-value>
-         c:\apache-tomcat-5.5.29\webapps\data\
-      </param-value> 
-   </context-param>
+    <!-- SMTP settings -->
+    <context-param>
+        <param-name>host</param-name>
+        <param-value>smtp.gmail.com</param-value>
+    </context-param>
+ 
+    <context-param>
+        <param-name>port</param-name>
+        <param-value>587</param-value>
+    </context-param>
+ 
+    <context-param>
+        <param-name>user</param-name>
+        <param-value>edummy404@gmail.com</param-value>
+    </context-param>
+ 
+    <context-param>
+        <param-name>pass</param-name>
+        <param-value>Dummy1234</param-value>
+    </context-param>
+ 	
+	<welcome-file-list>
+		<welcome-file>home.jsp</welcome-file>
+	</welcome-file-list>
 </web-app> 

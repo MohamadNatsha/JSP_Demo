@@ -2,23 +2,17 @@ package com.coteded.JspDemo.service;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 
 public class UploadFilesService {
-	public static ArrayList<String> Upload(String uploadPath,HttpServletRequest request) throws ServletException, IOException {
+	public static ArrayList<String> Upload(String uploadPath,String inServerPath,HttpServletRequest request) throws ServletException, IOException {
 		File uploadDir = new File(uploadPath);
 		if (!uploadDir.exists()) uploadDir.mkdir();
 		
@@ -31,7 +25,11 @@ public class UploadFilesService {
 				continue;
 			
 			File f = new File(fileName);
-			files.add(f.getName());
+			if(f.getName().equals(""))
+				files.add(null);
+			else
+				files.add(inServerPath + File.separator + f.getName());
+			
 		    try {
 		    	part.write(uploadPath + File.separator + f.getName());
 		    }catch(Exception e) {

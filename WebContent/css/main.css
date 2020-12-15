@@ -1,0 +1,134 @@
+*{
+    box-sizing: border-box;
+}
+html,body{
+    background-color: #efefef !important;
+    margin:0px;
+}
+
+
+.full-scale {
+	width: 100%;
+	height: 100%;
+}
+
+.no-overflow{
+    overflow: hidden;
+}
+.center{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-box{
+   	border: solid 1px rgb(66, 89, 151);
+    padding: 25px;
+    width: 400px;
+    background-color: rgb(255, 255, 255);
+   
+}
+
+
+
+.upload-box{
+	margin: 25px 0px;
+	display: flex;
+	align-items: center;
+    justify-content:space-around;
+    padding: 0px 0px;
+}
+
+.custom-file-input {
+    color: transparent;
+    width: 115px;
+  	height:115px;
+  }
+  .custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  .custom-file-input::before {
+  	width: 115px;
+  	height:115px;
+  	text-align: center;
+    content: 'Select some files';
+    color: black;
+    display: inline-block;
+    background: #f9f9f9;
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
+  }
+  .custom-file-input:hover::before {
+    border-color: black;
+  }
+  .custom-file-input:active {
+    outline: 0;
+  }
+  
+  .custom-file-input:active::before {
+    background:  #f9f9f9; 
+  }
+  
+  .video-file-input::before {
+    content: 'Select a Video';
+  }
+  
+   .image-file-input::before {
+    content: 'Select an Image';
+  }
+  
+  .box{
+  	padding: 20px 40px;
+  	background: #f9f9f9;
+  	width: auto;	
+  	display:flex;
+  	
+  }
+  .information-box{
+  	width: 500px;
+  }
+  .uploads-view { 
+  	padding: 30px;
+  	display:flex;
+  	flex-direction: column;
+  	align-items:center;
+  }
+  
+  .uploads-view *{ 
+  	margin: 10px;
+  }
+  
+  .loader {
+  border: 8px solid #f3f3f3; /* Light grey */
+  border-top: 8px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.blackbox{
+	position:fixed;
+	
+	top:0px;
+	left:0px;
+	background: rgba(0,0,0,0.82);
+}
+
+.flex {
+	display:flex;
+	align-items:center;
+}

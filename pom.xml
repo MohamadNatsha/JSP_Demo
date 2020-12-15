@@ -24,6 +24,48 @@
           <warSourceDirectory>WebContent</warSourceDirectory>
         </configuration>
       </plugin>
+      	<plugin>
+	        <groupId>org.jooq</groupId>
+	        <artifactId>jooq-codegen-maven</artifactId>
+	        <executions>
+	            <execution>
+	                <id>generate-mysql</id>
+	                <phase>generate-sources</phase>
+	                <goals>
+	                    <goal>generate</goal>
+	                </goals>
+	                <configuration>
+	                    <jdbc>
+	                        <driver>com.mysql.jdbc.Driver</driver>
+	                        <url>jdbc:mysql://localhost:3306/jsp_demo?useSSL=true&amp;serverTimezone=UTC&amp;autoReconnect=true</url>
+	                        <user>root</user>
+	                        <password>Test1234</password>
+	                    </jdbc>
+	                    <generator>
+	                        <database>
+	                            <name>org.jooq.meta.mysql.MySQLDatabase</name>
+									<includes>.*</includes>
+									<excludes>
+									  
+									</excludes>
+									<inputSchema>jsp_demo</inputSchema>
+	                        </database>
+	                        <target>
+	                            <packageName>com.coteded.JspDemo.jooq</packageName>
+	                            <directory>${basedir}\src</directory>
+	                        </target>
+	                    </generator>
+	                </configuration>
+	            </execution>
+	        </executions>
+	        <dependencies>
+	            <dependency>
+	                <groupId>mysql</groupId>
+	                <artifactId>mysql-connector-java</artifactId>
+	                <version>8.0.13</version>
+	            </dependency>
+	        </dependencies>
+	    </plugin>
     </plugins>
   </build>
    <dependencies>
@@ -53,9 +95,19 @@
 		<dependency>
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>
-		    <version>8.0.22</version>
+		    <version>8.0.13</version>
 		</dependency>
-		
+		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+		<dependency>
+		    <groupId>javax.mail</groupId>
+		    <artifactId>mail</artifactId>
+		    <version>1.4.7</version>
+		</dependency>
+		<dependency>
+		    <groupId>javax.activation</groupId>
+		    <artifactId>activation</artifactId>
+		    <version>1.1.1</version>
+		</dependency>
  	</dependencies>
   
 </project>
