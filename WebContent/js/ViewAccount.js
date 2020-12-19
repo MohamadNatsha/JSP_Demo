@@ -1,11 +1,5 @@
 function updateData(data){
-	$("#name").text(data.Name?data.Name:"");
-	$("#email").text(data.Email?data.Email:"");
-	$("#phone").text(data.Phone?data.Phone:"");
-	$("#desc").text(data.Desc?data.Desc:"");
-	$("#type").text(data.AccountType?data.AccountType:"");
-	$("#image").attr("src",data.Image?data.Image:"");
-	$("#video").attr("src",data.Video?data.Video:"");
+	$("#box").html(data);
 }
 
 function hideLoadingScreen(){

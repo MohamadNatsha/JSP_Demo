@@ -1,113 +1,119 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>JSP_Demo</groupId>
-  <artifactId>JSP_Demo</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
-  <name>demo</name>
-  <description>demo</description>
-  <build>
-    <sourceDirectory>src</sourceDirectory>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
-        <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>3.2.3</version>
-        <configuration>
-          <warSourceDirectory>WebContent</warSourceDirectory>
-        </configuration>
-      </plugin>
-      	<plugin>
-	        <groupId>org.jooq</groupId>
-	        <artifactId>jooq-codegen-maven</artifactId>
-	        <executions>
-	            <execution>
-	                <id>generate-mysql</id>
-	                <phase>generate-sources</phase>
-	                <goals>
-	                    <goal>generate</goal>
-	                </goals>
-	                <configuration>
-	                    <jdbc>
-	                        <driver>com.mysql.jdbc.Driver</driver>
-	                        <url>jdbc:mysql://localhost:3306/jsp_demo?useSSL=true&amp;serverTimezone=UTC&amp;autoReconnect=true</url>
-	                        <user>root</user>
-	                        <password>Test1234</password>
-	                    </jdbc>
-	                    <generator>
-	                        <database>
-	                            <name>org.jooq.meta.mysql.MySQLDatabase</name>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>JSP_Demo</groupId>
+	<artifactId>JSP_Demo</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>demo</name>
+	<description>demo</description>
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.2.3</version>
+				<configuration>
+					<warSourceDirectory>WebContent</warSourceDirectory>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.jooq</groupId>
+				<artifactId>jooq-codegen-maven</artifactId>
+				<executions>
+					<execution>
+						<id>generate-mysql</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<jdbc>
+								<driver>com.mysql.jdbc.Driver</driver>
+								<url>jdbc:mysql://localhost:3306/jsp_demo?useSSL=true&amp;serverTimezone=UTC&amp;autoReconnect=true</url>
+								<user>root</user>
+								<password>Test1234</password>
+							</jdbc>
+							<generator>
+								<database>
+									<name>org.jooq.meta.mysql.MySQLDatabase</name>
 									<includes>.*</includes>
 									<excludes>
-									  
+
 									</excludes>
 									<inputSchema>jsp_demo</inputSchema>
-	                        </database>
-	                        <target>
-	                            <packageName>com.coteded.JspDemo.jooq</packageName>
-	                            <directory>${basedir}\src</directory>
-	                        </target>
-	                    </generator>
-	                </configuration>
-	            </execution>
-	        </executions>
-	        <dependencies>
-	            <dependency>
-	                <groupId>mysql</groupId>
-	                <artifactId>mysql-connector-java</artifactId>
-	                <version>8.0.13</version>
-	            </dependency>
-	        </dependencies>
-	    </plugin>
-    </plugins>
-  </build>
-   <dependencies>
-	   	<!-- maven dependencies -->
+								</database>
+								<target>
+									<packageName>com.coteded.JspDemo.jooq</packageName>
+									<directory>${basedir}\src</directory>
+								</target>
+							</generator>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>8.0.13</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<!-- maven dependencies -->
 		<dependency>
-		  <groupId>org.jooq</groupId>
-		  <artifactId>jooq</artifactId>
-		  <version>3.14.4</version>
+			<groupId>org.jooq</groupId>
+			<artifactId>jooq</artifactId>
+			<version>3.14.4</version>
 		</dependency>
 		<dependency>
-		  <groupId>org.jooq</groupId>
-		  <artifactId>jooq-meta</artifactId>
-		  <version>3.14.4</version>
+			<groupId>org.jooq</groupId>
+			<artifactId>jooq-meta</artifactId>
+			<version>3.14.4</version>
 		</dependency>
 		<dependency>
-		  <groupId>org.jooq</groupId>
-		  <artifactId>jooq-codegen</artifactId>
-		  <version>3.14.4</version>
+			<groupId>org.jooq</groupId>
+			<artifactId>jooq-codegen</artifactId>
+			<version>3.14.4</version>
 		</dependency>
 		<!-- postGreSQL -->
 		<dependency>
-		    <groupId>org.postgresql</groupId>
-		    <artifactId>postgresql</artifactId>
-		    <version>42.2.16</version>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.2.16</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
-		    <groupId>mysql</groupId>
-		    <artifactId>mysql-connector-java</artifactId>
-		    <version>8.0.13</version>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.13</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
 		<dependency>
-		    <groupId>javax.mail</groupId>
-		    <artifactId>mail</artifactId>
-		    <version>1.4.7</version>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
 		</dependency>
 		<dependency>
-		    <groupId>javax.activation</groupId>
-		    <artifactId>activation</artifactId>
-		    <version>1.1.1</version>
+			<groupId>javax.activation</groupId>
+			<artifactId>activation</artifactId>
+			<version>1.1.1</version>
 		</dependency>
- 	</dependencies>
-  
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk</artifactId>
+			<version>1.11.327</version>
+		</dependency>
+	</dependencies>
 </project>
